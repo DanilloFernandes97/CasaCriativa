@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Casa Criativa" src="public/CasaCriativalogo.png"/>
+  <img alt="Casa Criativa" src="public/logo.png"/>
     <br>
 </h1>
 
