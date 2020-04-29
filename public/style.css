@@ -1,0 +1,495 @@
+/* CSS utiliza o conceito de caixas, tudo é uma caixa, e essas caixas podem ficar dentro de outras caixas 
+
+E nesses BOX, se arruma algumas questões como:
+
+    Largura,
+    Conteúdo da caixa,
+
+    Espaçamentos (margin),
+    Preenchimentos,
+    Bordas,
+
+    Posicionamentos
+
+    Deus salvador dono de todas as respostas de CSS: https://css-tricks.com/
+
+*/
+
+/* Global */
+
+body {
+
+    background-color: #e5e5e5;
+    color: #25282B;
+
+    font-family: 'Montserrat', sans-serif;
+
+    margin: 0; /*Tira a margin automática do body pra controlar somente dentro da div#conteiner*/
+}
+
+body.hidescroll {
+    
+    overflow: hidden;
+
+}
+
+a {
+
+    /* Remove o sublinhado do link */
+    color: #ff5E84;
+    text-decoration: none;
+   /* font-weight: none; */
+
+}
+
+a:hover {        
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+p, .description {
+
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+
+}
+
+.button {
+
+    color: white;
+
+    background: #ff5E84;
+
+    width: 150px;
+
+    height: 40px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: bold; 
+
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+
+                /* x, y, blur e cor */
+    box-shadow: 0px  8px 16px, rgba(255, 0, 92, 0.16);
+
+}
+
+.button:hover {
+    
+    background-color: #0984e3;
+    
+    text-decoration: none; /* remomve o undeline no texto quando passar o mouse encima somente no botão específico. */
+    
+}
+
+/* Padrão */
+
+#container {
+
+    width: 80%; /* Deixa 80% na largura para o contéudo não ficar encostando no topinho da página se ele for menor que 980px */
+    max-width: 980px;    
+    
+    margin: 40px auto;
+
+    display: flex; /* Faz os filhos de container ficarem em linha (numa linha só) como o tamanho da linha é pouco eles quebram a linha em linha alinhados linha por linha */
+
+}
+
+#intro {
+    width: 300px;
+    margin-right: 64px;
+}
+
+main {
+    
+    /*top: 32 e right: 32, left e right: 0 */
+    margin: 32px 0;
+
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-evenly; /* Usado somente em flex, grids e alguns tipos de CSS  */
+    margin-bottom: 32px;    
+}
+
+button {
+
+    color: #ff5E84;
+
+    border:none;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    line-height: 18px;
+
+    letter-spacing: 0.2px;   
+
+    background: none;
+
+    cursor: pointer;
+
+    outline: none; /* remove aquela borda laranjada em volta quando o foco é setado no botão */   
+
+}
+
+button:hover {
+    text-decoration: underline; /* deixa o undeline no texto quando passar o mouse encima */
+}
+
+footer {
+
+    text-align: center;   
+    
+    font-size: 14px;
+
+    font-weight: regular;
+
+    line-height: 18px;
+
+    letter-spacing: 0.2px;   
+
+    color: #777;
+
+}
+
+footer a { /* deixa a cor mais opaca que a propriedade para os link globais */
+
+    opacity: 0.7;
+
+}
+
+.idea {
+
+    display: flex;
+
+    margin-bottom: 32px;
+    
+    background-color: #fff;
+
+    box-shadow: 0 4px 16px -8px rgba(1, 1, 1, 0.1); /* -8px seria o espalhamento, como se ele engolisse a sombra pra dentro. */
+
+    border-radius: 8px;
+
+    padding: 32px;
+
+}
+
+.idea img {
+
+    width: 60px;
+    height: 60px;
+    margin-right: 32px;
+
+}
+
+.idea h3 {
+    margin: 0;  
+}
+
+.idea p {
+
+    margin: 8px 0;
+    color: #777;
+
+}
+
+.idea .description {
+
+    margin: 16px 0;
+
+}
+
+/* Modal */
+
+#modal {
+
+    background-color: #ff5E84;
+    
+    /* Seta a posição absoluta da página, tampando o conteúdo da página inicial aonde mostra as ultimas ideias */
+    /* position: absolute; */
+
+    position: fixed; /* Assim a posição fica fixa, dessa forma em telas grandes ou se der zoom no navegador não bagunçam */
+
+    top: 0;
+    bottom: 0 ;
+    right: 0;
+    left: 0;
+
+    height: 100%;
+
+    /*Com o position absolute, posso usar o vw para se adaptar as telas */
+    /* width: 100vw; vw é o view port: toda a area visível do seu dispositivo */
+    /* height: 100vh;  100vh não deu certo, mas deviria.. volta dps e vê o pq */
+    /*******************/
+
+    display: flex;    
+    justify-content: center;
+
+    transition: 400ms; /* demora 400ms pra entrar no que acontece no estilo .hide, tem mais coisas é claro */
+}
+
+#modal.addScroll {
+
+    /* O height tem de estar pelo menos np 100% pra dar certo. */
+    overflow: auto;
+
+}
+
+#modal.hide {
+
+    opacity: 0;
+    
+    visibility: hidden;
+    
+}
+
+#modal .content {
+
+    margin-top: 15%; 
+
+    margin: 0px auto;
+
+    color: white;
+
+}
+
+#modal .content h1 {
+
+    margin-bottom: 3;    
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+}
+
+#modal .content form {
+
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto 5%;
+
+    /* Deixando o display em grid */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 1fr = 1 coluna coluna flexível, 2 vezes são as duas colunas.  */
+    /**/
+
+    gap: 20px; /*Separação das grids  */
+}
+
+/* Aqui vai passar as ordens pro 3º,4º e 5º filho */
+/* Nessa situação é div3 div4 e div5 (os input-wrappers) */
+/* Nesse caso é com a intenção de somente o campo título e categoria */
+/* e categoria da ideia ficarem ideia de grid com 2 colunas e resto em row */
+#modal .content form div:nth-child(3),
+#modal .content form div:nth-child(4),
+#modal .content form div:nth-child(5) {
+    
+    /* grid-column é o agrupamento do grid-column-start e grid-column-end */
+    /* No caso expandir vai expandir até o dois, expande pras duas colunas */
+    grid-column: span 2;
+
+}
+
+#modal .content form input, 
+#modal .content form textarea { 
+
+    width: 100%;
+
+    padding: 12px;
+
+    /* Ajuste para não encavalar os campos por estarem em duas colunas do display grid */ 
+    box-sizing: border-box; /* Náo permite que a soma do 100% do width + os 12px do padding ultrapasse a caixa*/
+    /**/
+
+    border-radius: 6px;
+
+    border: 1px solid rgba(141, 25, 52, 0.5);
+
+    outline: none;
+
+    font-size: 16px;
+
+}
+
+#modal .content form label { 
+
+    font-weight: 600;
+    line-height: 32px; /* Altura do label até o campo abaixo*/
+    letter-spacing: 0.8px;
+
+}
+
+#modal .content form a {
+
+    width: 150px;
+
+    height: 40px;
+
+    background-color: #ffffff22;
+    
+    color: white;   
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    border-radius: 6px;
+
+    /* Usa o align-self pra ficar na mesma posição do botão*/
+    /* Ele pega as propriedades a partir da grid */
+    align-self: end; 
+
+    transition: 400ms; /* demora 400ms pra entrar no hover, tem mais coisas é claro */
+}
+
+#modal .content form a:hover { 
+
+    background: #fff;
+    color: #ff5E84;
+    text-decoration: none;
+
+}
+
+#modal .content form button {
+
+    background-color: white;
+
+    width: 150px;
+    height: 40px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    margin-top: 32px;
+
+    grid-column: 2; /* Fica na coluna 2 */
+
+    justify-self: end; /* Se auto justifica no final */
+
+    transition: 400ms; /* demora 400ms pra entrar no hover, tem mais coisas é claro */
+
+}
+
+#modal .content form button:hover {
+
+    background-color: #0984e3;
+    color: white;
+
+    text-decoration: none;
+
+} 
+
+/* IDEIAS.HTML */
+
+#page-ideas #container {
+
+    /* Tira o display: flex que mais acima para a configuração do id container que a pagina ideias.html tb usa */
+    /* Dessa forma só se aproveita somente as configurações que lá e tem e que me interessam. */
+
+    display: block;
+
+}
+
+#page-ideas header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+}
+
+#page-ideas nav {
+
+    display: flex; 
+    
+    align-items: center; /* Deixa todos os itens do nav em linha. */
+
+}
+
+#page-ideas nav li {
+
+    list-style-type: none;
+
+    margin-right: 16px;
+
+}
+
+#page-ideas nav li a { 
+    
+    color: #25282B;
+
+}
+
+#page-ideas nav li a.button { 
+    
+    color: white;
+
+}
+
+
+/* last-child sempre pega o ultimo filho do elemento HTML */
+#page-ideas nav li:last-child {
+
+    margin: 0;    
+
+}
+
+#page-ideas section#title {
+    
+    text-align: center;
+
+}
+
+#page-ideas section#title p {
+
+    opacity: 0.7;
+    margin: 0;
+
+}
+
+#page-ideas section#title h1 {
+
+    margin: 0;
+
+    font-size: 28px;
+
+}
+
+#page-ideas section#ideas {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px; /* distan ciamento das grids */
+
+}
+
+#page-ideas section#ideas .idea {
+
+    /* Tira o margin da configuração acima p/ geral. */
+
+    margin: 0;
+
+}
+
+#page-ideas section#title,
+#page-ideas section#ideas,
+footer {
+
+    margin-top: 64px;
+
+}

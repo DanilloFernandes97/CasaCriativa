@@ -1,0 +1,61 @@
+{% extends "layout.html" %} 
+
+<!--
+	Manda carregar o arquivo layout.html porém aonde fica o 
+	block content nele é preenchido com o conteúdo que existe
+	aqui no index.html
+-->
+
+{% block content %}
+
+<section id="intro">
+
+	<header>
+
+		<a href="/">
+
+			<img src="/logo.png" alt="Imagem da logomarca">
+
+		</a>
+
+	</header>
+
+	<main>
+
+		<p>
+			Ficar em casa em períodos longos, não deve ser nada fácil.
+		</p>
+
+		<p>
+			Iremos catalogar <strong>ideias, brincadeiras, jogos, filmes, livros, cursos, dicas </strong> e tudo
+			que for necessário para tornar esse momento mais interessante.
+		</p>
+
+		<p>
+			Comece clicando em ver ideias para ver as ideias cadastradas e contribua adicioando a sua ideia.
+		</p>
+
+	</main>
+
+	<section id="buttons">
+
+		<button onclick="onOffDivNovaIdeia()">+ Adicionar ideia</button>
+		<a href="ideias" class="button">Ver ideia</a>
+
+	</section>
+
+	<footer id="footer" class="hide">
+		Com ❤ <a href="https://www.linkedin.com/in/danillo-fernandes-720623108/" target="_blank">Danillo
+			Fernandes</a>
+	</footer>
+
+</section>
+
+<section id="last-ideias">
+
+	<!-- Cria as divs com as ideias -->
+	{% include "all_ideas.html" %}
+
+</section>
+
+{% endblock %}

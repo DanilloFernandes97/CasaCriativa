@@ -1,0 +1,63 @@
+{% extends "layout.html" %} 
+
+<!--
+
+Em {% set bodyId = "page-ideas"%} cria uma variável pra usar no body quando for carregar o layout.html, 
+pra poder funcionar o css.
+
+-->
+
+{% set bodyId = "page-ideas"%}
+
+{% block title %}
+
+    <title>Ideias - Casa Criativa</title>
+
+{% endblock title%}
+
+
+{% block content %}
+
+<header>
+
+    <a href="/">
+
+        <img src="/logo.png" alt="Imagem da logomarca">
+
+    </a>
+
+    <nav>
+
+        <li><a href="/">Início</a></li>
+        <li><a href="#">Ideias</a></li>
+        <li><a class="button" href="#" onclick="onOffDivNovaIdeia()">Nova Ideia</a></li>
+
+    </nav>
+
+</header>
+
+<section id="title">
+
+    <p>Em exibição</p>
+
+    <h1>Ideias</h1>
+
+</section>
+
+<main>
+
+    <section id="ideas">
+
+        <!-- Cria as divs com as ideias -->
+        {% include "all_ideas.html" %}
+
+    </section>
+
+</main>
+
+<footer id="footer" class="hide">
+    Com ❤ <a href="https://www.linkedin.com/in/danillo-fernandes-720623108/" target="_blank">Danillo
+        Fernandes</a>
+</footer>
+
+{% endblock %}
