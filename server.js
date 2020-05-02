@@ -101,8 +101,6 @@ server.post("/", (require, response) => {
 
 server.get("/ideias", (require, response) => {
 
-
-
     db.all(`SELECT id, image, title, category, description, link FROM ideas`, function (err, rows) {
 
         if (!err) {
@@ -118,6 +116,27 @@ server.get("/ideias", (require, response) => {
         }
 
     });
+
+});
+
+// I know, thats not the cool method for this, its just for tests and temporary, i want make a API for this application
+// for my study.
+server.get("/delete-idea/:id", (require, response) => {
+
+    db.run(`DELETE FROM ideas WHERE id = ?`, require.params.id, function(err) {
+
+        if (!err) {          
+
+            return response.redirect("/ideias");            
+
+        } else {
+
+            console.log(err);
+
+            return response.send("Erro no banco de dados, motivo: " + err);
+        }
+
+    } );
 
 });
 

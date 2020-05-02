@@ -190,6 +190,17 @@ footer a { /* deixa a cor mais opaca que a propriedade para os link globais */
 
 }
 
+.idea #delete_idea {
+
+    width: 60px;
+    height: 30px;    
+
+    position: relative; /* relative permite ajustar a posição do campo. */
+    left: 40px;
+
+    cursor: pointer;
+}
+
 .idea h3 {
     margin: 0;  
 }

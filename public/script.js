@@ -43,11 +43,12 @@ function checkFields(event) {
         window.alert("Por favor, preencha todos os campos");
     }
 
-    /* for(let value of valuesToCheck) {
-        
-        // target é referência do form, além de poder usar o [] eu posso usar assim por exemplo: event.target.title.
-        event.target[value];
+}
 
-    } */
+function deleteIdea(id) { 
+
+    // console.log(event.Target.value);
+
+    window.alert(id);
 
 }

@@ -14,9 +14,21 @@
             {{idea.description}}
         </div>
 
-        <a href="{{idea.link}}" target="_blank" >Ir para a ideia</a>
+        <a href="{{idea.link}}" target="_blank">Ir para a ideia</a>
 
     </div>
+
+    <!--I know, that's not the cool method for this, its just for tests and temporary, i want to make a API for this application
+    for my study-->
+    <a href="delete-idea/{{idea.id}}">
+
+    <img id="delete_idea" src="https://image.flaticon.com/icons/svg/2089/2089657.svg" alt="Excluir ideia"
+        title="Excluir a ideia">
+
+        <!--onclick="deleteIdea('{{idea.id}}')"-->
+
+    </a>
+
 </div>
 
 {% endfor %}
