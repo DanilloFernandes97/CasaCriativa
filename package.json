@@ -8,7 +8,7 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "Danillo Fernandes",
+  "author": "Danillo Fernandes (Dante97)",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",

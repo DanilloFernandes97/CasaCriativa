@@ -44,11 +44,3 @@ function checkFields(event) {
     }
 
 }
-
-function deleteIdea(id) { 
-
-    // console.log(event.Target.value);
-
-    window.alert(id);
-
-}
